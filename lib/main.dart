@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:szachy_pl/registerPage.dart';
 import 'buttons.dart';
 import 'package:o3d/o3d.dart';
+import 'loginPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,10 +24,10 @@ class MyApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
-              Text("Szachy.pl", style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold)),
-
-              Expanded(
+              const Text("Szachy.pl", style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold)),
+              Container(
+                height: 400,
+                width: 500,
                 child: const O3D.asset(
                   src: "assets/chess_rook.glb",
                   autoRotate: true,
@@ -36,21 +38,7 @@ class MyApp extends StatelessWidget {
                   
                 )
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(height: 60),
-                  Button(
-                    text: "Login",
-                    onPressed: () {},
-                  ),
-                  SizedBox(height: 30),
-                  Button(
-                    text: "Register",
-                    onPressed: () {},
-                  ),
-                SizedBox(height: 80)],
-              ),
+              MainMenu(),
             ],
           ),
         ),
@@ -58,4 +46,39 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+class MainMenu extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return 
+      Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 40),
+            Button(
+              text: "Login",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
+            ),
+            const SizedBox(height: 20),
+            Button(
+              text: "Register",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RegisterPage()),
+                );
+              },
+            ),
+          ],
+        ),
+      );
+  }
+
 }
