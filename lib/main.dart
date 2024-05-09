@@ -5,10 +5,11 @@ import 'package:o3d/o3d.dart';
 import 'loginPage.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text("Szachy.pl", style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold)),
-              Container(
+              Container( //TODO: LADOWANIE MODELU WCZESNIEJ ZEBY NIE BYLO MOMENTU W KTORYM GO NIE WIDAC
                 height: 400,
                 width: 500,
                 child: const O3D.asset(
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MainMenu extends StatelessWidget{
+  
   @override
   Widget build(BuildContext context) {
     return 
