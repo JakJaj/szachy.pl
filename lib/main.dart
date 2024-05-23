@@ -1,86 +1,55 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:szachy_pl/registerPage.dart';
-import 'buttons.dart';
-import 'package:o3d/o3d.dart';
-import 'loginPage.dart';
+import 'package:flutter_chess/authentication/landing_screen.dart';
+import 'package:flutter_chess/authentication/login_screen.dart';
+import 'package:flutter_chess/authentication/sign_up_screen.dart';
+import 'package:flutter_chess/constants.dart';
+import 'package:flutter_chess/firebase_options.dart';
+import 'package:flutter_chess/main_screens/game_screen.dart';
+import 'package:flutter_chess/main_screens/game_time_screen.dart';
+import 'package:flutter_chess/main_screens/home_screen.dart';
+import 'package:flutter_chess/main_screens/profile_screen.dart';
+import 'package:flutter_chess/providers/authentication_provider.dart';
+import 'package:flutter_chess/providers/game_provider.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(create: (_) => GameProvider()),
+      ChangeNotifierProvider(create: (_) => AuthenticationProvider())
+    ], child: const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Test', 
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: Color.fromARGB(0xAA, 0xAA, 0xAA, 0xAA),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      home: Scaffold(
-        body: SafeArea(
-          
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text("Szachy.pl", style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold)),
-              Container( //TODO: LADOWANIE MODELU WCZESNIEJ ZEBY NIE BYLO MOMENTU W KTORYM GO NIE WIDAC
-                height: 400,
-                width: 500,
-                child: const O3D.asset(
-                  src: "assets/chess_rook.glb",
-                  autoRotate: true,
-                  disableZoom: true,
-                  rotationPerSecond: "30deg",
-                  autoRotateDelay: 0,
-                  interactionPrompt: InteractionPrompt.none,
-                  
-                )
-              ),
-              MainMenu(),
-            ],
-          ),
-        ),
-      
-      ),
+      //home: const HomeScreen(),
+      initialRoute: Constants.landingScreen,
+      routes: {
+        Constants.homeScreen: (context) => const HomeScreen(),
+        Constants.gameScreen: (context) => const GameScreen(),
+        Constants.settingScreen: (context) => const ProfileScreen(),
+        Constants.gameTimeScreen: (context) => const GameTimeScreen(),
+        Constants.loginScreen: (context) => const LoginScreen(),
+        Constants.signUpScreen: (context) => const SignUpScreen(),
+        Constants.landingScreen: (context) => const LandingScreen(),
+      },
     );
   }
-}
-
-class MainMenu extends StatelessWidget{
-  
-  @override
-  Widget build(BuildContext context) {
-    return 
-      Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 40),
-            Button(
-              text: "Login",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginPage()),
-                );
-              },
-            ),
-            const SizedBox(height: 20),
-            Button(
-              text: "Register",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const RegisterPage()),
-                );
-              },
-            ),
-          ],
-        ),
-      );
-  }
-
 }

@@ -1,11 +1,11 @@
 {
-    "name": "szachy_pl",
-    "short_name": "szachy_pl",
+    "name": "flutter_chess",
+    "short_name": "flutter_chess",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Flutter app for playing chess online and offline for a University Project",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -866,4 +866,5 @@ FodyWeavers.xsd
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
+lib/firebase_options.dart
 # End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,macos,windows,xcode,visualstudio,visualstudiocode,dart,flutter,firebase,linux,intellij
