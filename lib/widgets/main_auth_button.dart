@@ -16,7 +16,7 @@ class MainAuthButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 5,
-      color: Colors.blue,
+      color: Colors.green,
       borderRadius: BorderRadius.circular(10),
       child: MaterialButton(
         onPressed: onPressed,

@@ -178,7 +178,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         children: [
                           CircleAvatar(
                             radius: 60,
-                            backgroundColor: Colors.blue,
+                            backgroundColor: Colors.green,
                             backgroundImage:
                                 FileImage(File(finalFileImage!.path)),
                           ),
@@ -187,7 +187,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             right: 0,
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: Colors.lightBlue,
+                                  color: Colors.lightGreen,
                                   border:
                                       Border.all(width: 2, color: Colors.white),
                                   borderRadius: BorderRadius.circular(35)),
@@ -212,7 +212,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         children: [
                           CircleAvatar(
                             radius: 60,
-                            backgroundColor: Colors.blue,
+                            backgroundColor: Colors.green,
                             backgroundImage: AssetImage(AssetsManager.userIcon),
                           ),
                           Positioned(
@@ -220,7 +220,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             right: 0,
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: Colors.lightBlue,
+                                  color: Colors.lightGreen,
                                   border:
                                       Border.all(width: 2, color: Colors.white),
                                   borderRadius: BorderRadius.circular(35)),
@@ -250,6 +250,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   maxLength: 25,
                   maxLines: 1,
                   decoration: textFormDecoration.copyWith(
+                    fillColor: Colors.green,
                     counterText: '',
                     labelText: 'Enter your name',
                     hintText: 'Enter your name',
@@ -273,6 +274,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   textInputAction: TextInputAction.next,
                   maxLines: 1,
                   decoration: textFormDecoration.copyWith(
+                    fillColor: Colors.green,
                     labelText: 'Enter your email',
                     hintText: 'Enter your email',
                   ),
@@ -296,6 +298,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextFormField(
                   textInputAction: TextInputAction.done,
                   decoration: textFormDecoration.copyWith(
+                    fillColor: Colors.green,
                     labelText: 'Enter your password',
                     hintText: 'Enter your password',
                     suffixIcon: IconButton(

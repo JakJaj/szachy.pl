@@ -29,7 +29,7 @@ class _GameStartUpScreenState extends State<GameStartUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green,
         title: const Text(
           'Setup Game',
           style: TextStyle(color: Colors.white),
@@ -178,6 +178,7 @@ class _GameStartUpScreenState extends State<GameStartUpScreen> {
                               ),
                               GameLevelRadioButton(
                                   title: GameDifficulty.medium.name,
+
                                   value: GameDifficulty.medium,
                                   groupValue: gameProvider.gameDifficulty,
                                   onChanged: (value) {
@@ -210,6 +211,9 @@ class _GameStartUpScreenState extends State<GameStartUpScreen> {
                           playGame(gameProvider: gameProvider);
                         },
                         child: Text('Play'),
+                        style: ElevatedButton.styleFrom(
+                          textStyle: const TextStyle(color: Colors.green)
+                        )
                       ),
 
                 const SizedBox(

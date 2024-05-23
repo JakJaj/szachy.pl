@@ -276,9 +276,9 @@ class _GameScreenState extends State<GameScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.green,
           title: const Text(
-            'Flutter Chess',
+            'Szachy.pl',
             style: TextStyle(color: Colors.white),
           ),
           actions: [

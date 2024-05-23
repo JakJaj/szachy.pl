@@ -16,9 +16,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final userModel = context.read<AuthenticationProvider>().userModel;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        backgroundColor: Colors.green,
+        title: const Text('Profile', style: TextStyle(color: Colors.white),),
         actions: [
-          Text("Logout"),
+          Text("Logout", 
+            style: 
+              TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
           // logout button
           IconButton(
             onPressed: () {
@@ -31,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     context, Constants.loginScreen, (route) => false);
               });
             },
-            icon: const Icon(Icons.logout),
+            icon: const Icon(Icons.logout, color: Colors.white,),
           ),
         ],
       ),

@@ -19,9 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
     final gameProvider = context.read<GameProvider>();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green,
         title: const Text(
-          'Flutter Chess',
+          'Szachy.pl',
           style: TextStyle(color: Colors.white),
         ),
       ),

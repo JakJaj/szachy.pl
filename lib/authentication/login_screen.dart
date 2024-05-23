@@ -61,8 +61,6 @@ class _LoginScreenState extends State<LoginScreen> {
           navigate(isSignedIn: true);
         
       } else {
-        // TODO navigate to user information
-        
           showSnackBar(context: context, content: "Wrong credentials");
           navigate(isSignedIn: false);
         
@@ -140,6 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: textFormDecoration.copyWith(
                     labelText: 'Enter your password',
                     hintText: 'Enter your password',
+                    fillColor: Colors.green,
                     suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
